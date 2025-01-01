@@ -38,7 +38,7 @@ function createAccordionDate() {
     <div class="accordion_item">
     <div class="accordion_title">
     <h3>${dataItem.question}</h3>
-    <i class="fa-solid fa-arrow-up"></i>
+    <i class="fa-solid fa-arrow-down"></i>
     </div>
     <div class="accordion_content">
     <p>${dataItem.answear}</p>
@@ -57,14 +57,16 @@ console.log("==================================================");
 
 getAccordionTitle.forEach(currentItem => {
     currentItem.addEventListener('click', (event)=> {
-        if (currentItem.classList.remove("active")) {
+        if (currentItem.classList.contains("active")) {
             currentItem.classList.remove("active")
         } else {
             let getAlreadyAddedActiveClass = document.querySelectorAll('.active');
 
             getAlreadyAddedActiveClass.forEach(currentActiveItem => {
-                currentActiveItem.classList.remove()
-            })
+                currentActiveItem.classList.remove('active');
+            });
+
+            currentItem.classList.add("active");
         }
     })
 })
